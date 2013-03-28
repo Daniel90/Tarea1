@@ -1,3 +1,6 @@
+//Tarea N°1 Ing.Software2013
+//Daniel Abrilot, https://github.com/Daniel90
+//John Lopez, https://github.com/johnlopez
 #include <cstdlib>
 #include <iostream>
 #include <time.h>
@@ -273,3 +276,5 @@ int main(int argc, char *argv[])
     Caballo(A);
     system("pause");
 }
+
+
