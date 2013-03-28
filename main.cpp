@@ -3,21 +3,25 @@
 #include <time.h>
 using namespace std;
 
-void mostrarM(int M[][8],int jugada,int sum)
+void mostrarM(int M[][8],int jugada,int sum,int u,int w)
 {
+     cout<<"    0     1     2     3     4     5     6     7"<<endl<<"    |     |     |     |     |     |     |     |     "<<endl<<"    |     |     |     |     |     |     |     |     "<<endl;
      for(int i=0;i<=7;i++)
      {
-           for(int j=0;j<=7;j++)
-               cout<<M[i][j]<<"     ";     
+           cout<<i<<"---";
+           for(int j=0;j<=7;j++)      
+               cout<<M[i][j]<<"     ";    
            cout<<endl<<endl<<endl; 
+           
      }                           
      cout<<"Jugada Numero: "<<jugada<<endl;
      cout<<"contador: "<<sum<<endl;
+     cout<<"posicion actual: ( "<<u<<" , "<<w<<" )"<<endl;
      system("pause");
-     system("CLS");   
+     system("cls"); 
 }
 
-void llenarM(int M[][8])
+void Caballo(int M[][8])
 {
      
      for(int i=0;i<=7;i++)
@@ -26,7 +30,7 @@ void llenarM(int M[][8])
      int i=7,j=0,jugada=1,sum=1;
      M[i][j]=1;
      srand(time(NULL));
-     mostrarM(M,jugada,sum);
+     mostrarM(M,jugada,sum,i,j);
      while(sum!=60)                                    
      {
          long num=(rand()%8)+1;   //-->Se generará un número al azar y se le asignara con una de las posibles jugadas que puede realizar el caballo
@@ -47,14 +51,15 @@ void llenarM(int M[][8])
                             M[i][j]=1;
                             sum++;
                             jugada++;
-                            mostrarM(M,jugada,sum);
+                            mostrarM(M,jugada,sum,i,j);
                        }
                        else                       
                        { 
                              M[i][j]++; 
                              jugada++;
-                             mostrarM(M,jugada,sum);        
+                             mostrarM(M,jugada,sum,i,j);        
                        }
+                       
                        
                    }
                    break;
@@ -73,14 +78,14 @@ void llenarM(int M[][8])
                             M[i][j]=1;
                             sum++;
                             jugada++;
-                            mostrarM(M,jugada,sum);
+                            mostrarM(M,jugada,sum,i,j);
                             
                        }
                        else
                        {
                            M[i][j]++; 
                            jugada++;
-                           mostrarM(M,jugada,sum);
+                           mostrarM(M,jugada,sum,i,j);
                            
                        }
                         
@@ -101,14 +106,14 @@ void llenarM(int M[][8])
                             M[i][j]=1;
                             sum++;
                             jugada++;
-                            mostrarM(M,jugada,sum);
+                            mostrarM(M,jugada,sum,i,j);
                             
                        }
                        else
                        {
                            M[i][j]++; 
                            jugada++;
-                           mostrarM(M,jugada,sum);
+                           mostrarM(M,jugada,sum,i,j);
                            
                        }
                         
@@ -129,14 +134,14 @@ void llenarM(int M[][8])
                             M[i][j]=1;
                             sum++;
                             jugada++;
-                            mostrarM(M,jugada,sum);
+                            mostrarM(M,jugada,sum,i,j);
                             
                        }
                        else
                        {
                            M[i][j]++; 
                            jugada++;
-                           mostrarM(M,jugada,sum);
+                           mostrarM(M,jugada,sum,i,j);
                            
                        }
                         
@@ -157,14 +162,14 @@ void llenarM(int M[][8])
                             M[i][j]=1;
                             sum++;
                             jugada++;
-                            mostrarM(M,jugada,sum);
+                            mostrarM(M,jugada,sum,i,j);
                             
                        }
                        else
                        {
                            M[i][j]++; 
                            jugada++;
-                           mostrarM(M,jugada,sum);
+                           mostrarM(M,jugada,sum,i,j);
                            
                        }
                         
@@ -185,14 +190,14 @@ void llenarM(int M[][8])
                             M[i][j]=1;
                             sum++;
                             jugada++;
-                            mostrarM(M,jugada,sum);
+                            mostrarM(M,jugada,sum,i,j);
                             
                        }
                        else
                        {
                            M[i][j]++;
                            jugada++; 
-                           mostrarM(M,jugada,sum);
+                           mostrarM(M,jugada,sum,i,j);
                            
                        }
                         
@@ -213,14 +218,14 @@ void llenarM(int M[][8])
                             M[i][j]=1;
                             sum++;
                             jugada++;
-                            mostrarM(M,jugada,sum);
+                            mostrarM(M,jugada,sum,i,j);
                             
                        }
                        else
                        {
                            M[i][j]++; 
                            jugada++;
-                           mostrarM(M,jugada,sum);
+                           mostrarM(M,jugada,sum,i,j);
                            
                        }
                         
@@ -241,14 +246,14 @@ void llenarM(int M[][8])
                             M[i][j]=1;
                             sum++;
                             jugada++;
-                            mostrarM(M,jugada,sum);
+                            mostrarM(M,jugada,sum,i,j);
                             
                        }
                        else
                        {
                            M[i][j]++;
                            jugada++; 
-                           mostrarM(M,jugada,sum);
+                           mostrarM(M,jugada,sum,i,j);
                            
                        }
                         
@@ -257,12 +262,14 @@ void llenarM(int M[][8])
                    
          }
      }
+     cout<<"RESUMEN"<<endl;
+     cout<<"Numero de jugadas: "<<jugada<<endl;
 }
 
 int main(int argc, char *argv[])
 {
+    
     int A[8][8];
-    llenarM(A);
-    system("PAUSE");
-    return EXIT_SUCCESS;
+    Caballo(A);
+    system("pause");
 }
